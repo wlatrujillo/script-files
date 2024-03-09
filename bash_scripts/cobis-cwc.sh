@@ -44,12 +44,17 @@ targetPath=$(pwd)
 
 echo 'Copy cobishome-web to:' $targetPath
 docker cp $containerName:/home/cobisuser/cobishome-web $targetPath
+
 echo 'Copy tomcat to:' $targetPath
 docker cp $containerName:/usr/local/tomcat $targetPath
 
 echo 'stopping docker:' $containerName
 docker stop $containerName
 
+echo 'removing docker:' $containerName
+docker rm $containerName
+
+sed -i '2d' $targetPath/tomcat/bin/catalina.sh
 
 if [ -d $targetPath/cwc-assets ]; then
     echo 'Directory exists'
@@ -68,4 +73,3 @@ echo 'Copy cobis-container-config.xml settings to: ' $cobisContainerPath
 cp $targetPath/cwc-assets/cobis-container-config.xml $cobisContainerPath 
 echo 'Copy setenv.sh to: ' $tomcatBinPath
 cp $targetPath/cwc-assets/cobis/setenv-$env.sh $tomcatBinPath/setenv.sh
-

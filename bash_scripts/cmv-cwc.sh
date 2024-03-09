@@ -14,13 +14,11 @@ case $env in
   'dev')
     account=573946347747
     profile=${account}_COBDeveloper
-    targetPath=~/cmv-cwc-dev
     ;;
 
   'qa')
     account=566383216324
     profile=${account}_COBSupport
-    targetPath=~/cmv-cwc-qa
     ;;
 
   *)
@@ -46,11 +44,17 @@ targetPath=$(pwd)
 
 echo 'Copy cobishome-web to:' $targetPath
 docker cp $containerName:/home/cobisuser/cobishome-web $targetPath
+
 echo 'Copy tomcat to:' $targetPath
 docker cp $containerName:/usr/local/tomcat $targetPath
+
 echo 'stopping docker:' $containerName
 docker stop $containerName
 
+echo 'removing docker:' $containerName
+docker rm $containerName
+
+sed -i '2d' $targetPath/tomcat/bin/catalina.sh
 
 if [ -d $targetPath/cwc-assets ]; then
     echo 'Directory exists'
@@ -69,4 +73,3 @@ echo 'Copy cobis-container-config.xml settings to: ' $cobisContainerPath
 cp $targetPath/cwc-assets/cobis-container-config.xml $cobisContainerPath 
 echo 'Copy setenv.sh to: ' $tomcatBinPath
 cp $targetPath/cwc-assets/cmv/setenv-$env.sh $tomcatBinPath/setenv.sh
-
