@@ -4,7 +4,14 @@
 
 # Usage: ./aws_instance_info.sh <instance_name> <profile> <property>
 name=$1
+property=$2
 profile=wladi.trujillo
-property=PublicIpAddress
+
+if [ ! "$name" ]  || [ ! "$property" ];
+then
+  echo "Usage: $0 <instance_name>"
+  echo "PublicIpAddress, PrivateIpAddress, InstanceId, InstanceType, AvailabilityZone"
+  exit
+fi
 
 aws ec2 --profile $profile describe-instances --filters "Name=tag:Name,Values=$name" | grep $property | awk '{ print $2 }' | tr -d '",' | head -n 1
