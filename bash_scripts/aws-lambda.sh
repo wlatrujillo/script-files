@@ -2,8 +2,8 @@
 
 # This script is used to invoke AWS Lambda function using AWS CLI 
 # The script takes 2 arguments:
-# 1. group: the name of the group of EC2 instances to start or stop 
-# 2. action: the action to perform on the group of EC2 instances (start or stop) 
+# 1. Name: the tag Name of EC2 instances to start or stop 
+# 2. Action: the action to perform on the group of EC2 instances (start or stop) 
 
 DisplayHelp()
 {
@@ -13,15 +13,19 @@ DisplayHelp()
    echo
    echo "This script is used to invoke AWS Lambda function using AWS CLI."
    echo
-   echo "Syntax: scriptTemplate <instance_name> <action>"
+   echo "Syntax: scriptTemplate <instance_tag_name> <action>"
    echo
    echo "Options:"
    echo "  -p    Specify the AWS profile."
    echo "  -h    Print this Help."
    echo
    echo "Arguments:"
-   echo "  Usage example: $0 mongodb start"
-   echo "  Usage example: $0 mongodb stop"
+   echo "  instance_tag_name: mongodb | splunk | jenkins | etc."
+   echo "  action: start | stop"
+   echo
+   echo "Usage:"
+   echo "  sh $0 mongodb start"
+   echo "  sh $0 -p profile_name mongodb start"
 }
 
 CallAwsCli()
