@@ -35,6 +35,8 @@ Plug 'tpope/vim-commentary' " For Commenting gcc & gc
 Plug 'tpope/vim-fugitive' " For Git commands
 Plug 'easymotion/vim-easymotion'
 Plug 'scrooloose/nerdtree'
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+Plug 'duane9/nvim-rg'
 Plug 'junegunn/fzf', {'do' : { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'github/copilot.vim'
