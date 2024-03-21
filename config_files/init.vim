@@ -49,6 +49,8 @@ let mapleader= " "
 nmap <Leader><Leader>s <Plug>(easymotion-s2)
 nnoremap <silent> <expr> <Leader>nt g:NERDTree.IsOpen() ? "\:NERDTreeClose<CR>" : bufexists(expand('%')) ? "\:NERDTreeFind<CR>" : "\:NERDTree<CR>"
 
+let g:rg_command = 'rg --vimgrep' " For nvim-rg configuration
+
 nmap <Leader>w :w<CR>
 nmap <Leader>q :q<CR>
 nmap <Leader>x :x<CR>
