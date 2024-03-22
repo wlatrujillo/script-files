@@ -16,14 +16,17 @@ DisplayHelp()
    echo "Syntax: scriptTemplate <instance_tag_name> <action>"
    echo
    echo "Options:"
+   echo
    echo "  -p    Specify the AWS profile."
    echo "  -h    Print this Help."
    echo
    echo "Arguments:"
+   echo
    echo "  instance_tag_name: mongodb | splunk | jenkins | etc."
    echo "  action: start | stop"
    echo
    echo "Usage:"
+   echo
    echo "  sh $0 mongodb start"
    echo "  sh $0 -p profile_name mongodb start"
 }
