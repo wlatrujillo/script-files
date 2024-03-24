@@ -17,16 +17,18 @@ DisplayHelp()
    echo "  -h    Print this Help."
    echo
    echo "Arguments:"
-   echo
-   echo "instance_name: The name of the instance."
-   echo "property: The property to get. It can be one of the following: InstanceId, InstanceType, PublicIpAddress, PrivateIpAddress, AvailabilityZone."
+   echo "  instance_name    The name of the instance."
+   echo "  property         The property to get. It can be one of the following:"
+   echo "                   - InstanceId"
+   echo "                   - InstanceType"
+   echo "                   - PublicIpAddress"
+   echo "                   - PrivateIpAddress"
    echo
    echo "Usage:"
-   echo
-   echo "sh $0 mongodb PublicIpAddress"
-   echo "sh $0 mongodb PrivateIpAddress"
-   echo "sh $0 mongodb InstanceId"
-   echo "sh $0 mongodb InstanceType"
+   echo "  sh $0 mongodb PublicIpAddress"
+   echo "  sh $0 mongodb PrivateIpAddress"
+   echo "  sh $0 mongodb InstanceId"
+   echo "  sh $0 mongodb InstanceType"
 }
 
 CallAwsCli()
