@@ -8,12 +8,40 @@ This repository contains the scripts that I use for my daily work.
 
 ## Config Files
 
+```shell
 ~/.bashrc
 
-~/.ideavimrc
+```
 
-~/.vimrc
+## Tmux Config
 
-~/.tmux.conf
+```shell
 
-~/.config/nvim/init.vim
+    ~/.tmux.conf
+
+```
+
+## Vim Config
+
+```shell
+    ~/.vimrc
+    ~/.ideavimrc
+```
+
+## Nvim script config
+
+```shell
+    ~/.config/nvim/init.vim
+```
+
+## Nvim Lua Config 
+
+```shell
+    ~/.config/nvim/lua/init.lua
+    ~/.config/nvim/lua/config
+    ~/.config/nvim/lua/plugins
+```
+
+
+
+
