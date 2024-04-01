@@ -1,6 +1,0 @@
-set relativenumber number
-
-Plug 'easymotion/vim-easymotion'
-
-let mapleader = "\<Space>"
-inoremap jj <Esc>
