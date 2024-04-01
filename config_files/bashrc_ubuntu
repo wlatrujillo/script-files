@@ -136,13 +136,6 @@ export M2_HOME=~/apache-maven-3.9.6
 export PATH=$PATH:$M2_HOME/bin
 fi
 
-## Alias for the fuck
-alias fuck='eval $(thefuck $(fc -ln -1)); history -r'
-
-## Alias for git hub copilot
-alias ghcs='gh copilot suggest -t shell'
-alias ghce='gh copilot explain'
-
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
