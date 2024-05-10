@@ -1,11 +1,11 @@
 #!/bin/sh
 #
 env=$1
-version=$2
+imageTag=$2
 
-if [ ! "$env" ] || [ ! "$version" ]
+if [ ! "$env" ] || [ ! "$imageTag" ]
 then
-  echo "environment and version is required example: $0 dev1 2.46.13"
+  echo "environment and imageTag is required example: $0 dev1 producto-dev1-cwc-2.60.4"
   exit
 fi
 
@@ -28,7 +28,6 @@ case $env in
 esac
 
 region=us-east-1
-imageTag=producto-$env-cwc-$version
 containerName=$imageTag
 
 echo 'Login aws ecr profile:' $profile
