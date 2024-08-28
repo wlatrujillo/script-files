@@ -74,4 +74,4 @@ echo 'Copy cobis-container-config.xml settings to: ' $cobisContainerPath
 cp $targetPath/cwc-assets/cobis-container-config.xml $cobisContainerPath 
 
 echo 'Copy setenv.sh to: ' $tomcatBinPath
-cp $targetPath/cwc-assets/cobis/setenv-$env.sh $tomcatBinPath/setenv.sh
+cp $targetPath/cwc-assets/cmv/setenv-$env.sh $tomcatBinPath/setenv.sh
