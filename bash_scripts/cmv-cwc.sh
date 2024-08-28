@@ -1,17 +1,18 @@
 #!/bin/sh
 #
 env=$1
-version=$2
+imageTag=$2
 
-if [ ! "$env" ] || [ ! "$version" ]
+if [ ! "$env" ] || [ ! "$imageTag" ]
 then
-  echo "environment and version is required example: $0 dev1 2.46.13"
+  echo "environment and imageTag is required example: $0 dev cmv-dev-cwc-v1.11.12"
   exit
 fi
 
 case $env in
 
   'dev')
+            
     account=573946347747
     profile=${account}_COBDeveloper
     ;;
@@ -28,7 +29,6 @@ case $env in
 esac
 
 region=us-east-1
-imageTag=producto-$env-cwc-$version
 containerName=$imageTag
 
 echo 'Login aws ecr profile:' $profile
@@ -69,7 +69,9 @@ tomcatBinPath=$targetPath/tomcat/bin/
 
 echo 'Copy cwc-log-config.xml to: ' $infrastructurePath
 cp $targetPath/cwc-assets/cwc-log-config.xml $infrastructurePath
+
 echo 'Copy cobis-container-config.xml settings to: ' $cobisContainerPath
 cp $targetPath/cwc-assets/cobis-container-config.xml $cobisContainerPath 
+
 echo 'Copy setenv.sh to: ' $tomcatBinPath
-cp $targetPath/cwc-assets/cmv/setenv-$env.sh $tomcatBinPath/setenv.sh
+cp $targetPath/cwc-assets/cobis/setenv-$env.sh $tomcatBinPath/setenv.sh

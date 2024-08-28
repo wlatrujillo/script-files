@@ -68,7 +68,9 @@ tomcatBinPath=$targetPath/tomcat/bin/
 
 echo 'Copy cwc-log-config.xml to: ' $infrastructurePath
 cp $targetPath/cwc-assets/cwc-log-config.xml $infrastructurePath
+
 echo 'Copy cobis-container-config.xml settings to: ' $cobisContainerPath
 cp $targetPath/cwc-assets/cobis-container-config.xml $cobisContainerPath 
+
 echo 'Copy setenv.sh to: ' $tomcatBinPath
 cp $targetPath/cwc-assets/cobis/setenv-$env.sh $tomcatBinPath/setenv.sh
