@@ -11,9 +11,9 @@ DisplayHelp()
    echo
    echo "Help:"
    echo
-   echo "This script is to connect to bastion and expose port to connect the database of the environment."
+   echo "Description: Connect bastion and expose port to connect DB."
    echo
-   echo "Syntax: scriptTemplate <environmentId>"
+   echo "Syntax: sh cobis-db.sh <customerId> <environmentId>"
    echo
    echo "Options:"
    echo
