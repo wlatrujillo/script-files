@@ -38,10 +38,10 @@ CallAwsSessionManager()
     portdb=3333
     hostdb=master.database.general.cob.cobiscloud.int
 
+    echo "aws ssm start-session --target $instanceId --profile $profile  --document-name AWS-StartPortForwardingSessionToRemoteHost --parameters \"localPortNumber=$localPort,portNumber=$portdb,host=$hostdb\""
+
     aws ssm start-session --target $instanceId --profile $profile  --document-name AWS-StartPortForwardingSessionToRemoteHost --parameters "localPortNumber=$localPort,portNumber=$portdb,host=$hostdb"
 }
-
-
 
 # Get the options
 while getopts ":hi:" option; do
@@ -93,7 +93,6 @@ esac
 if [ -z "$instanceId" ]; then
     echo "Instance Id is empty trying to get the instance id from the environment with profile $profile and the tag Name=$env-bastion-*"
     instanceId=$(aws ec2 --profile $profile describe-instances --filters "Name=tag:Name,Values=$env-bastion-*" | grep InstanceId | awk '{ print $2 }' | tr -d '",' | head -n 1)
-    echo "Instance Id: $instanceId"
 fi  
 
 CallAwsSessionManager "$instanceId" "$profile" "$localPort"
