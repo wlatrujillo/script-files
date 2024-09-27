@@ -38,9 +38,9 @@ CallAwsSessionManager()
     portdb=3333
     hostdb=master.database.general.cob.cobiscloud.int
 
-    echo "aws ssm start-session --target $instanceId --profile $profile  --document-name AWS-StartPortForwardingSessionToRemoteHost --parameters \"localPortNumber=$localPort,portNumber=$portdb,host=$hostdb\""
+    echo "aws ssm start-session --target $instanceId --profile $profile --document-name AWS-StartPortForwardingSessionToRemoteHost --parameters \"localPortNumber=$localPort,portNumber=$portdb,host=$hostdb\""
 
-    aws ssm start-session --target $instanceId --profile $profile  --document-name AWS-StartPortForwardingSessionToRemoteHost --parameters "localPortNumber=$localPort,portNumber=$portdb,host=$hostdb"
+    aws ssm start-session --target $instanceId --profile $profile --document-name AWS-StartPortForwardingSessionToRemoteHost --parameters "localPortNumber=$localPort,portNumber=$portdb,host=$hostdb"
 }
 
 # Get the options
