@@ -22,12 +22,13 @@ DisplayHelp()
    echo
    echo "Arguments:"
    echo
+   echo "  customerId: cobis | cmv | clf"
    echo "  environmentId: dev1 | qa1 | stg1"
    echo
    echo "Usage:"
    echo
-   echo "  sh $0 dev1"
-   echo "  sh $0 -i 434de3434343-34 dev1"
+   echo "  sh $0 cobis dev1"
+   echo "  sh $0 -i 434de3434343-34 cobis dev1"
 }
 
 CallAwsSessionManager()
@@ -35,8 +36,8 @@ CallAwsSessionManager()
     instanceId=$1 
     profile=$2
     localPort=$3
+    hostdb=$4
     portdb=3333
-    hostdb=master.database.general.cob.cobiscloud.int
 
     echo "aws ssm start-session --target $instanceId --profile $profile --document-name AWS-StartPortForwardingSessionToRemoteHost --parameters \"localPortNumber=$localPort,portNumber=$portdb,host=$hostdb\""
 
@@ -61,33 +62,74 @@ done
 shift $((OPTIND - 1))
 
 # Check if enough arguments are provided
-if [ "$#" -ne 1 ]; then
+if [ "$#" -ne 2 ]; then
     echo "Error: Invalid number of arguments"
     DisplayHelp
     exit 1
 fi
 
-env=$1
+customer=$1
+env=$2
 
-case $env in
+case $customer in 
+    
+      'cobis')
+        case $env in
 
-  'dev1')
-    account=681989517074
-    profile=${account}_COBDeveloper
-    localPort=3315
-    ;;
+          'dev1')
+            account=681989517074
+            profile=${account}_COBDeveloper
+            hostdb=master.database.general.cob.cobiscloud.int
+            localPort=3315
+            ;;
 
-  'qa1')
-    account=110595436954
-    profile=${account}_COBTester
-    localPort=3316
-    ;;
+          'qa1')
+            account=110595436954
+            profile=${account}_COBTester
+            hostdb=master.database.general.cob.cobiscloud.int
+            localPort=3316
+            ;;
 
-  *)
-    echo 'environment not valid allowed dev1 qa1'
-    exit
-    ;;
+          *)
+            echo 'environment not valid allowed dev1 qa1'
+            exit
+            ;;
+        esac
+     ;;
+    
+      'cmv')
+        case $env in
+
+          'dev')
+            account=573946347747
+            profile=${account}_COBDeveloper
+            hostdb=master.database.general.CMV.cobiscloud.int
+            localPort=1055
+            ;;
+
+          'qa')
+            account=566383216324
+            profile=${account}_COBSupport
+            hostdb=master.database.general.CMV.cobiscloud.int
+            localPort=1056
+            ;;
+
+          *)
+            echo 'environment not valid allowed dev qa'
+            exit
+            ;;
+        esac
+     ;;
+    
+      'clf')
+     ;;
+    
+      *)
+     echo 'customer not valid allowed cobis cmv clf'
+     exit
+     ;;
 esac
+
 
 # Validate if the instance id is empty
 if [ -z "$instanceId" ]; then
@@ -95,5 +137,5 @@ if [ -z "$instanceId" ]; then
     instanceId=$(aws ec2 --profile $profile describe-instances --filters "Name=tag:Name,Values=$env-bastion-*" | grep InstanceId | awk '{ print $2 }' | tr -d '",' | head -n 1)
 fi  
 
-CallAwsSessionManager "$instanceId" "$profile" "$localPort"
+CallAwsSessionManager "$instanceId" "$profile" "$localPort" "$hostdb"
 
