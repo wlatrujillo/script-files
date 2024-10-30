@@ -107,7 +107,7 @@ case $customer in
             ;;
 
           *)
-            echo 'environment not valid allowed dev1 qa1'
+            echo 'environment not valid allowed dev1 dev4 dev5 qa1'
             exit
             ;;
         esac
