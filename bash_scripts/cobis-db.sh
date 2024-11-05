@@ -100,10 +100,10 @@ case $customer in
             ;;
           'qa1')
             account=110595436954
-            profile=${account}_COBTester
+            profile=${account}_COBSupport
             region=us-east-1
             hostdb=master.database.general.cob.cobiscloud.int
-            localPort=3316
+            localPort=3415
             ;;
 
           *)
