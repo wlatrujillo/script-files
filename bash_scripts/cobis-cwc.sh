@@ -1,30 +1,64 @@
 #!/bin/sh
 #
-env=$1
-imageTag=$2
+customer=$1
+env=$2
+imageTag=$3
 
-if [ ! "$env" ] || [ ! "$imageTag" ]
+if [ ! "$customer" ] || [ ! "$env" ] || [ ! "$imageTag" ]
 then
-  echo "environment and imageTag is required example: $0 dev1 producto-dev1-cwc-2.60.4"
+  echo "customer and environment and imageTag is required example: $0 cobis dev1 producto-dev1-cwc-2.60.4"
   exit
 fi
 
-case $env in
+case $customer in 
+    
+      'cobis')
+        case $env in
 
-  'dev1')
-    account=681989517074
-    profile=${account}_COBDeveloper
-    ;;
+          'dev1')
+            account=681989517074
+            profile=${account}_COBDeveloper
+            ;;
 
-  'qa1')
-    account=110595436954
-    profile=${account}_COBSupport
-    ;;
+          'qa1')
+            account=110595436954
+            profile=${account}_COBTester
+            ;;
 
-  *)
-    echo 'environment not valid allowed dev1 qa1'
-    exit
-    ;;
+          *)
+            echo 'environment not valid allowed dev1 qa1'
+            exit
+            ;;
+        esac
+     ;;
+    
+      'cmv')
+        case $env in
+
+          'dev')
+            account=573946347747
+            profile=${account}_COBDeveloper
+            ;;
+
+          'qa')
+            account=566383216324
+            profile=${account}_COBSupport
+            ;;
+
+          *)
+            echo 'environment not valid allowed dev qa'
+            exit
+            ;;
+        esac
+     ;;
+    
+      'clf')
+     ;;
+    
+      *)
+     echo 'customer not valid allowed cobis cmv clf'
+     exit
+     ;;
 esac
 
 region=us-east-1
