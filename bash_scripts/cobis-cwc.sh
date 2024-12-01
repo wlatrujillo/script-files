@@ -22,7 +22,7 @@ case $customer in
 
           'qa1')
             account=110595436954
-            profile=${account}_COBTester
+            profile=${account}_COBSupport
             ;;
 
           *)
