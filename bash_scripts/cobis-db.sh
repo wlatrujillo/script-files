@@ -84,6 +84,13 @@ case $customer in
             hostdb=master.database.general.cob.cobiscloud.int
             localPort=3315
             ;;
+          'dev2')
+            account=681989517074
+            profile=${account}_COBDeveloper
+            region=us-east-1
+            hostdb=dev2-us-east-1-gp-cluster-rds-bck-20230921-global.cluster-ck9mgilqxnyv.us-east-1.rds.amazonaws.com
+            localPort=3316
+            ;;
           'dev4')
             account=681989517074
             profile=${account}_COBDeveloper
