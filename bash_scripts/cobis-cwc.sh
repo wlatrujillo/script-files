@@ -17,12 +17,12 @@ case $customer in
 
           'dev1')
             account=681989517074
-            profile=${account}_COBDeveloper
+            profile=COBDeveloper-${account}
             ;;
 
           'qa1')
             account=110595436954
-            profile=${account}_COBSupport
+            profile=COBSupport-${account}
             ;;
 
           *)
@@ -37,12 +37,12 @@ case $customer in
 
           'dev')
             account=573946347747
-            profile=${account}_COBDeveloper
+            profile=COBDeveloper-${account}
             ;;
 
           'qa')
             account=566383216324
-            profile=${account}_COBSupport
+            profile=COBSupport-${account}
             ;;
 
           *)
@@ -64,7 +64,7 @@ esac
 region=us-east-1
 containerName=$imageTag
 
-echo 'Login aws ecr profile:' $profile
+echo "aws ecr --profile $profile get-login-password --region $region | docker login --username AWS --password-stdin $account.dkr.ecr.$region.amazonaws.com"
 aws ecr --profile $profile get-login-password --region $region | docker login --username AWS --password-stdin $account.dkr.ecr.$region.amazonaws.com
 
 echo 'pull imageTag:' $imageTag
@@ -81,11 +81,14 @@ docker cp $containerName:/home/cobisuser/cobishome-web $targetPath
 echo 'Copy tomcat to:' $targetPath
 docker cp $containerName:/usr/local/tomcat $targetPath
 
-echo 'stopping docker:' $containerName
+echo 'stopping docker container:' $containerName
 docker stop $containerName
 
 echo 'removing docker:' $containerName
 docker rm $containerName
+
+echo 'removing docker image:' $account.dkr.ecr.$region.amazonaws.com/cobis/cwc-cloud:$imageTag 
+docker rmi $account.dkr.ecr.$region.amazonaws.com/cobis/cwc-cloud:$imageTag 
 
 sed -i '2d' $targetPath/tomcat/bin/catalina.sh
 

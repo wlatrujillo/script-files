@@ -79,35 +79,35 @@ case $customer in
 
           'dev1')
             account=681989517074
-            profile=${account}_COBDeveloper
+            profile=COBDeveloper-${account}
             region=us-east-1
             hostdb=master.database.general.cob.cobiscloud.int
             localPort=3315
             ;;
           'dev2')
             account=681989517074
-            profile=${account}_COBDeveloper
+            profile=COBDeveloper-${account}
             region=us-east-1
             hostdb=dev2-us-east-1-gp-cluster-rds-bck-20230921-global.cluster-ck9mgilqxnyv.us-east-1.rds.amazonaws.com
             localPort=3316
             ;;
           'dev4')
             account=681989517074
-            profile=${account}_COBDeveloper
+            profile=COBDeveloper-${account}
             region=us-east-2
             hostdb=master.database.general.cob.cobiscloud.int
             localPort=3318
             ;;
           'dev5')
             account=681989517074
-            profile=${account}_COBDeveloper
+            profile=COBDeveloper-${account}
             region=us-east-2
             hostdb=master.database.general.cob.cobiscloud.int
             localPort=3319
             ;;
           'qa1')
             account=110595436954
-            profile=${account}_COBSupport
+            profile=COBSupport-${account}
             region=us-east-1
             hostdb=master.database.general.cob.cobiscloud.int
             localPort=3415
@@ -125,7 +125,7 @@ case $customer in
 
           'dev')
             account=573946347747
-            profile=${account}_COBDeveloper
+            profile=COBDeveloper-${account}
             region=us-east-1
             hostdb=master.database.general.CMV.cobiscloud.int
             localPort=1055
@@ -133,7 +133,7 @@ case $customer in
 
           'qa')
             account=566383216324
-            profile=${account}_COBSupport
+            profile=COBSupport-${account}
             region=us-east-1
             hostdb=master.database.general.CMV.cobiscloud.int
             localPort=1056
