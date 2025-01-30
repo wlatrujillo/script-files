@@ -112,6 +112,13 @@ case $customer in
             hostdb=master.database.general.cob.cobiscloud.int
             localPort=3415
             ;;
+          'stg1')
+            account=891377317704
+            profile=COBSupport-${account}
+            region=us-east-1
+            hostdb=master.database.general.cob.cobiscloud.int
+            localPort=3515
+            ;;
 
           *)
             echo 'environment not valid allowed dev1 dev4 dev5 qa1'
