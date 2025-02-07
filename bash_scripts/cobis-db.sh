@@ -143,7 +143,7 @@ case $customer in
             profile=COBSupport-${account}
             region=us-east-1
             hostdb=master.database.general.CMV.cobiscloud.int
-            localPort=1056
+            localPort=1155
             ;;
 
           *)
