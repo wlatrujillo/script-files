@@ -62,33 +62,34 @@ case $customer in
 esac
 
 region=us-east-1
-containerName=$imageTag
+#containerImage=$account.dkr.ecr.$region.amazonaws.com/cobis/cwc-cloud:$imageTag
+containerImage=$account.dkr.ecr.$region.amazonaws.com/$env/cobis/infra-cwc:$imageTag
 
 echo "aws ecr --profile $profile get-login-password --region $region | docker login --username AWS --password-stdin $account.dkr.ecr.$region.amazonaws.com"
 aws ecr --profile $profile get-login-password --region $region | docker login --username AWS --password-stdin $account.dkr.ecr.$region.amazonaws.com
 
-echo 'pull imageTag:' $imageTag
-docker pull $account.dkr.ecr.$region.amazonaws.com/cobis/cwc-cloud:$imageTag
+echo 'pull imageTag:' $containerImage
+docker pull $containerImage 
 
 echo 'run container:' $imageTag
-docker run --name $containerName -p 8080:8080 -d $account.dkr.ecr.$region.amazonaws.com/cobis/cwc-cloud:$imageTag 
+docker run --name $imageTag -p 8080:8080 -d $containerImage
 
 targetPath=$(pwd)
 
 echo 'Copy cobishome-web to:' $targetPath
-docker cp $containerName:/home/cobisuser/cobishome-web $targetPath
+docker cp $imageTag:/home/cobisuser/cobishome-web $targetPath
 
 echo 'Copy tomcat to:' $targetPath
-docker cp $containerName:/usr/local/tomcat $targetPath
+docker cp $imageTag:/usr/local/tomcat $targetPath
 
-echo 'stopping docker container:' $containerName
-docker stop $containerName
+echo 'stopping docker container:' $imageTag
+docker stop $imageTag
 
-echo 'removing docker:' $containerName
-docker rm $containerName
+echo 'removing docker:' $imageTag
+docker rm $imageTag
 
-echo 'removing docker image:' $account.dkr.ecr.$region.amazonaws.com/cobis/cwc-cloud:$imageTag 
-docker rmi $account.dkr.ecr.$region.amazonaws.com/cobis/cwc-cloud:$imageTag 
+echo 'removing docker image:' $containerImage 
+docker rmi $containerImage
 
 sed -i '2d' $targetPath/tomcat/bin/catalina.sh
 
