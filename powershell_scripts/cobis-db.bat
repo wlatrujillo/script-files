@@ -7,9 +7,18 @@ rem This script takes one argument, the environment name.
 set customer=%1
 set env=%2
 
+if not defined customer (
+    echo customer and env are needed. Example: cobis-db.bat cobis dev1
+    exit /b 1
+)
+if not defined env (
+    echo customer and env are needed. Example: cobis-db.bat cobis dev1
+    exit /b 1
+)
+
 if "%customer%"=="cobis" goto cobis
-if "%customer%"=="cobis" goto cmv
-if "%customer%"=="cobis" goto clf
+if "%customer%"=="cmv" goto cmv
+if "%customer%"=="clf" goto clf
 
 :cobis
 if "%env%"=="dev1" (
