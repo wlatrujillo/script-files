@@ -34,39 +34,43 @@ if "%env%"=="qa1" (
     set profile=110595436954_COBSupport
     set region=us-east-1
 )
+goto download
 
-echo "Login aws ecr profile: %profile%"
+:download
+echo Login aws ecr profile: %profile%
 aws ecr --profile %profile% get-login-password --region %region% | docker login --username AWS --password-stdin %account%.dkr.ecr.%region%.amazonaws.com
 
-echo "pull containerTag: $containerTag"
-docker pull %account%.dkr.ecr.%region%.amazonaws.com/%env%/cwc-cloud:%containerTag%
+echo pull containerTag: %containerTag%
+docker pull %account%.dkr.ecr.%region%.amazonaws.com/%env%/cobis/infra-cwc:%containerTag%
 
-echo "run container: $containerTag"
-docker run --name %containerTag% -d %account%.dkr.ecr.%region%.amazonaws.com/%env%/cwc-cloud:%containerTag%
+echo run container: %containerTag%
+docker run --name %containerTag% -d %account%.dkr.ecr.%region%.amazonaws.com/%env%/cobis/infra-cwc:%containerTag%
 
-set targetPath = Get-Location
+set targetPath=%CD%
 
-echo "Copy cobishome-web to: ${targetPath}"
-docker cp %containerTag%:/home/cobisuser/cobishome-web ${targetPath}
+echo Copy cobishome-web to: %targetPath%
+docker cp %containerTag%:/home/cobisuser/cobishome-web %targetPath%
 
-echo "Copy tomcat to: ${targetPath}"
-docker cp %containerTag%:/usr/local/tomcat ${targetPath}
+echo Copy tomcat to: %targetPath%
+docker cp %containerTag%:/usr/local/tomcat %targetPath%
 
-echo "stopping docker: %containerTag%"
+echo stopping docker: %containerTag%
 docker stop %containerTag%
 
-echo "removing docker: $containerTag"
+echo removing docker: %containerTag%
 docker rm %containerTag%
 
-set infrastructurePath = "%targetPath%\\cobishome-web\\cwc\\infrastructure"
-set cobisContainerPath = "%targetPath%\\cobishome-web\\cwc\\services-as\\cobis-container"
-set tomcatBinPath = "%targetPath%\\tomcat\\bin"
+set infrastructurePath=%targetPath%\cobishome-web\cwc\infrastructure
+set cobisContainerPath=%targetPath%\cobishome-web\cwc\services-as\cobis-container
+set tomcatBinPath=%targetPath%\tomcat\bin
 
-echo "Copy cwc-log-config.xml to: %infrastructurePath%"
-Copy-Item "%targetPath%\\cwc-assets\\cwc-log-config.xml" %infrastructurePath%
+echo Copy cwc-log-config.xml to: %infrastructurePath%
+copy /Y %targetPath%\cwc-assets\cwc-log-config.xml %infrastructurePath%
 
-echo "Copy cobis-container-config.xml settings to: %cobisContainerPath%"
-Copy-Item "%targetPath%\\cwc-assets\\cobis-container-config.xml" $cobisContainerPath 
+echo Copy cobis-container-config.xml settings to: %cobisContainerPath%
+copy /Y %targetPath%\cwc-assets\cobis-container-config.xml %cobisContainerPath%
 
-echo "Copy setenv.bat to: %tomcatBinPath%"
-Copy-Item "%targetPath%\\cwc-assets\\cobis\\setenv-%env%.bat" "%tomcatBinPath%\\setenv.bat"
+echo Copy setenv.bat to: %tomcatBinPath%
+copy /Y %targetPath%\cwc-assets\cobis\setenv-%env%.bat %tomcatBinPath%\setenv.bat
+
+endLocal
