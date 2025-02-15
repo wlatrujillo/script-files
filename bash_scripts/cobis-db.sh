@@ -91,6 +91,13 @@ case $customer in
             hostdb=dev2-us-east-1-gp-cluster-rds-bck-20230921-global.cluster-ck9mgilqxnyv.us-east-1.rds.amazonaws.com
             localPort=3316
             ;;
+          'dev3')
+            account=681989517074
+            profile=COBDeveloper-${account}
+            region=us-east-1
+            hostdb=dev3-gp-cluster-rds-bck-24112023-dev3.cluster-ck9mgilqxnyv.us-east-1.rds.amazonaws.com
+            localPort=3317
+            ;;
           'dev4')
             account=681989517074
             profile=COBDeveloper-${account}
