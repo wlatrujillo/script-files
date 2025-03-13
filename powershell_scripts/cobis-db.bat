@@ -69,13 +69,13 @@ goto connect
 if "%env%"=="dev" (
     set profile=573946347747_COBDeveloper
     set region=us-east-1    
-    set hostdb=master.database.general.cob.cobiscloud.int
+    set hostdb=master.database.general.cmv.cobiscloud.int
     set localPort=1055
 )
 if "%env%"=="qa" (
     set profile=566383216324_COBSupport
     set region=us-east-1    
-    set hostdb=master.database.general.cob.cobiscloud.int
+    set hostdb=master.database.general.cmv.cobiscloud.int
     set localPort=1155
 )
 goto connect
