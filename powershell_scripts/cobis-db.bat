@@ -57,11 +57,23 @@ if "%env%"=="qa1" (
     set hostdb=master.database.general.cob.cobiscloud.int
     set localPort=3415
 )
+if "%env%"=="qa2" (
+    set profile=110595436954_COBSupport
+    set region=us-east-1
+    set hostdb=qa2-gp-global-cluster-bck-20230925.global-gsfo2ixyznir.global.rds.amazonaws.com
+    set localPort=3416
+)
 if "%env%"=="stg1" (
     set profile=891377317704_COBSupport
     set region=us-east-1    
     set hostdb=master.database.general.cob.cobiscloud.int
     set localPort=3515
+)
+if "%env%"=="stg2" (
+    set profile=891377317704_COBSupport
+    set region=us-east-1    
+    set hostdb=master.database.general.cob.cobiscloud.int
+    set localPort=3516
 )
 goto connect
 
@@ -69,13 +81,13 @@ goto connect
 if "%env%"=="dev" (
     set profile=573946347747_COBDeveloper
     set region=us-east-1    
-    set hostdb=master.database.general.cob.cobiscloud.int
+    set hostdb=master.database.general.cmv.cobiscloud.int
     set localPort=1055
 )
 if "%env%"=="qa" (
     set profile=566383216324_COBSupport
     set region=us-east-1    
-    set hostdb=master.database.general.cob.cobiscloud.int
+    set hostdb=master.database.general.cmv.cobiscloud.int
     set localPort=1155
 )
 goto connect
