@@ -9,7 +9,7 @@ set env=%2
 set containerTag=%3
 
 if not defined customer (
-    echo customer env containerTag are needed. Example: cobis-cwc.bat cobis dev1 deveop-1.2.45-SNAPSHOT
+    echo customer env containerTag are needed. Example: cobis-cwc.bat cobis dev1 develop-1.2.45-SNAPSHOT
     exit /b 1
 )
 if not defined env (
