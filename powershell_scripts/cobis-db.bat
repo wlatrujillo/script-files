@@ -19,6 +19,7 @@ if not defined env (
 if "%customer%"=="cobis" goto cobis
 if "%customer%"=="cmv" goto cmv
 if "%customer%"=="clf" goto clf
+if "%customer%"=="mor" goto mor
 
 :cobis
 if "%env%"=="dev1" (
@@ -88,13 +89,21 @@ if "%env%"=="qa" (
     set profile=566383216324_COBSupport
     set region=us-east-1    
     set hostdb=master.database.general.cmv.cobiscloud.int
-    set localPort=1155
+    set localPort=1056
 )
 goto connect
 
 :clf
 goto connect
 
+:mor
+if "%env%"=="dev" (
+    set profile=848417527347_COBDeveloper
+    set region=us-east-1    
+    set hostdb=dev-gp-cluster-rds.cluster-cncpaebgqvbw.us-east-1.rds.amazonaws.com
+    set localPort=1155
+)
+goto connect
 
 :connect
 :: Use PowerShell to parse the JSON output from AWS CLI
