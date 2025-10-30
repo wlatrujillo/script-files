@@ -64,6 +64,12 @@ if "%env%"=="qa2" (
     set hostdb=qa2-gp-global-cluster-bck-20230925.global-gsfo2ixyznir.global.rds.amazonaws.com
     set localPort=3416
 )
+if "%env%"=="drqa2" (
+    set profile=110595436954_COBSupport
+    set region=us-west-2
+    set hostdb=drqa2-us-west-2-gp-cluster-rds-bck-20230925-global.cluster-ckkvmm8qhq9z.us-west-2.rds.amazonaws.com
+    set localPort=3416
+)
 if "%env%"=="stg1" (
     set profile=891377317704_COBSupport
     set region=us-east-1    

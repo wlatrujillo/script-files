@@ -29,7 +29,32 @@ if "%env%"=="dev1" (
     set profile=681989517074_COBDeveloper
     set region=us-east-1
 )
+if "%env%"=="dev2" (
+    set account=681989517074
+    set profile=681989517074_COBDeveloper
+    set region=us-east-1
+)
+if "%env%"=="dev3" (
+    set account=681989517074
+    set profile=681989517074_COBDeveloper
+    set region=us-east-1
+)
+if "%env%"=="dev4" (
+    set account=681989517074
+    set profile=681989517074_COBDeveloper
+    set region=us-east-2
+)
+if "%env%"=="dev5" (
+    set account=681989517074
+    set profile=681989517074_COBDeveloper
+    set region=us-east-2
+)
 if "%env%"=="qa1" (
+    set account=110595436954
+    set profile=110595436954_COBSupport
+    set region=us-east-1
+)
+if "%env%"=="qa2" (
     set account=110595436954
     set profile=110595436954_COBSupport
     set region=us-east-1
