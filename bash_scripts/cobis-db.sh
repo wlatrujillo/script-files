@@ -119,6 +119,20 @@ case $customer in
             hostdb=master.database.general.cob.cobiscloud.int
             localPort=3415
             ;;
+          'qa2')
+            account=110595436954
+            profile=COBSupport-${account}
+            region=us-east-1
+            hostdb=master.database.general.cob.cobiscloud.int
+            localPort=3416
+            ;;
+          'drqa2')
+            account=110595436954
+            profile=COBSupport-${account}
+            region=us-west-2
+            hostdb=drqa2-us-west-2-gp-cluster-rds-bck-20230925-global.cluster-ckkvmm8qhq9z.us-west-2.rds.amazonaws.com
+            localPort=3416
+            ;;
           'stg1')
             account=891377317704
             profile=COBSupport-${account}
@@ -128,7 +142,7 @@ case $customer in
             ;;
 
           *)
-            echo 'environment not valid allowed dev1 dev4 dev5 qa1'
+            echo 'environment not valid allowed dev1 dev4 dev5 qa1 qa2 drqa2 stg1'
             exit
             ;;
         esac
