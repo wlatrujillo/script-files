@@ -97,6 +97,18 @@ if "%env%"=="qa" (
     set hostdb=master.database.general.cmv.cobiscloud.int
     set localPort=1056
 )
+if "%env%"=="stg" (
+    set profile=125451158619_COBSupport
+    set region=us-east-1    
+    set hostdb=master.database.general.cmv.cobiscloud.int
+    set localPort=1057
+)
+if "%env%"=="prd" (
+    set profile=654654438648_COBSupport
+    set region=us-east-1    
+    set hostdb=master.database.general.CMV.cobiscloud.int
+    set localPort=1060
+)
 goto connect
 
 :clf
