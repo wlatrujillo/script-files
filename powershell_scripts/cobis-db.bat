@@ -34,6 +34,12 @@ if "%env%"=="dev2" (
     set hostdb=dev2-gp-global-cluster-bck-20230921.global-gdctcvchpt1c.global.rds.amazonaws.com
     set localPort=3316
 )
+if "%env%"=="drdev2" (
+    set profile=681989517074_COBDeveloper
+    set region=us-west-2
+    set hostdb=drdev2-us-west-2-gp-cluster-rds-bck-20251013-global.cluster-ca7znqtnpovh.us-west-2.rds.amazonaws.com
+    set localPort=3316
+)
 if "%env%"=="dev3" (
     set profile=681989517074_COBDeveloper
     set region=us-east-1
@@ -100,6 +106,12 @@ if "%env%"=="qa" (
 goto connect
 
 :clf
+if "%env%"=="dev" (
+    set profile=712379411477_COBDeveloper
+    set region=us-east-1    
+    set hostdb=dev-baseplatform-dbgeneralpurpose-1kq-rdsinstance0-zzw8cppsqoyz.cew0rq1jag6m.us-east-1.rds.amazonaws.com
+    set localPort=1155
+)
 goto connect
 
 :mor
@@ -107,7 +119,7 @@ if "%env%"=="dev" (
     set profile=848417527347_COBDeveloper
     set region=us-east-1    
     set hostdb=dev-gp-cluster-rds.cluster-cncpaebgqvbw.us-east-1.rds.amazonaws.com
-    set localPort=1155
+    set localPort=1255
 )
 goto connect
 
