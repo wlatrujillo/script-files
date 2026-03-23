@@ -79,70 +79,70 @@ case $customer in
 
           'dev1')
             account=681989517074
-            profile=COBDeveloper-${account}
+            profile=cob-dev
             region=us-east-1
             hostdb=master.database.general.cob.cobiscloud.int
             localPort=3315
             ;;
           'dev2')
             account=681989517074
-            profile=COBDeveloper-${account}
+            profile=cob-dev
             region=us-east-1
             hostdb=dev2-us-east-1-gp-cluster-rds-bck-20230921-global.cluster-ck9mgilqxnyv.us-east-1.rds.amazonaws.com
             localPort=3316
             ;;
           'dev3')
             account=681989517074
-            profile=COBDeveloper-${account}
+            profile=cob-dev
             region=us-east-1
             hostdb=dev3-gp-cluster-rds-bck-24112023-dev3.cluster-ck9mgilqxnyv.us-east-1.rds.amazonaws.com
             localPort=3317
             ;;
           'dev4')
             account=681989517074
-            profile=COBDeveloper-${account}
+            profile=cob-dev
             region=us-east-2
             hostdb=master.database.general.cob.cobiscloud.int
             localPort=3318
             ;;
           'dev5')
             account=681989517074
-            profile=COBDeveloper-${account}
+            profile=cob-dev
             region=us-east-2
             hostdb=master.database.general.cob.cobiscloud.int
             localPort=3319
             ;;
           'qa1')
             account=110595436954
-            profile=COBSupport-${account}
+            profile=cob-qa
             region=us-east-1
             hostdb=master.database.general.cob.cobiscloud.int
             localPort=3415
             ;;
           'qa2')
             account=110595436954
-            profile=COBSupport-${account}
+            profile=cob-qa
             region=us-east-1
             hostdb=master.database.general.cob.cobiscloud.int
             localPort=3416
             ;;
           'drqa2')
             account=110595436954
-            profile=COBSupport-${account}
+            profile=cob-qa
             region=us-west-2
             hostdb=drqa2-us-west-2-gp-cluster-rds-bck-20230925-global.cluster-ckkvmm8qhq9z.us-west-2.rds.amazonaws.com
             localPort=3416
             ;;
           'stg1')
             account=891377317704
-            profile=COBSupport-${account}
+            profile=cob-stg
             region=us-east-1
             hostdb=master.database.general.cob.cobiscloud.int
             localPort=3515
             ;;
 
           *)
-            echo 'environment not valid allowed dev1 dev4 dev5 qa1 qa2 drqa2 stg1'
+            echo 'environment not valid allowed dev1 dev2 dev3 dev4 dev5 qa1 qa2 drqa2 stg1'
             exit
             ;;
         esac
@@ -152,23 +152,28 @@ case $customer in
         case $env in
 
           'dev')
-            account=573946347747
-            profile=COBDeveloper-${account}
+            profile=cmv-dev
             region=us-east-1
             hostdb=master.database.general.CMV.cobiscloud.int
             localPort=1055
             ;;
 
           'qa')
-            account=566383216324
-            profile=COBSupport-${account}
+            profile=cmv-qa
             region=us-east-1
             hostdb=master.database.general.CMV.cobiscloud.int
-            localPort=1155
+            localPort=1056
+            ;;
+
+          'prd')
+            profile=cmv-prd
+            region=us-east-1
+            hostdb=master.database.general.CMV.cobiscloud.int
+            localPort=1060
             ;;
 
           *)
-            echo 'environment not valid allowed dev qa'
+            echo 'environment not valid allowed dev qa prd'
             exit
             ;;
         esac
