@@ -78,63 +78,60 @@ case $customer in
         case $env in
 
           'dev1')
-            account=681989517074
             profile=cob-dev
             region=us-east-1
             hostdb=master.database.general.cob.cobiscloud.int
             localPort=3315
             ;;
           'dev2')
-            account=681989517074
             profile=cob-dev
             region=us-east-1
             hostdb=dev2-us-east-1-gp-cluster-rds-bck-20230921-global.cluster-ck9mgilqxnyv.us-east-1.rds.amazonaws.com
             localPort=3316
             ;;
+          'drdev2')
+            profile=cob-dev
+            region=us-west-2
+            hostdb=drdev2-us-west-2-gp-cluster-rds-bck-20251013-global.cluster-ca7znqtnpovh.us-west-2.rds.amazonaws.com
+            localPort=3316
+            ;;
           'dev3')
-            account=681989517074
             profile=cob-dev
             region=us-east-1
             hostdb=dev3-gp-cluster-rds-bck-24112023-dev3.cluster-ck9mgilqxnyv.us-east-1.rds.amazonaws.com
             localPort=3317
             ;;
           'dev4')
-            account=681989517074
             profile=cob-dev
             region=us-east-2
             hostdb=master.database.general.cob.cobiscloud.int
             localPort=3318
             ;;
           'dev5')
-            account=681989517074
             profile=cob-dev
             region=us-east-2
             hostdb=master.database.general.cob.cobiscloud.int
             localPort=3319
             ;;
           'qa1')
-            account=110595436954
             profile=cob-qa
             region=us-east-1
             hostdb=master.database.general.cob.cobiscloud.int
             localPort=3415
             ;;
           'qa2')
-            account=110595436954
             profile=cob-qa
             region=us-east-1
             hostdb=master.database.general.cob.cobiscloud.int
             localPort=3416
             ;;
           'drqa2')
-            account=110595436954
             profile=cob-qa
             region=us-west-2
             hostdb=drqa2-us-west-2-gp-cluster-rds-bck-20230925-global.cluster-ckkvmm8qhq9z.us-west-2.rds.amazonaws.com
             localPort=3416
             ;;
           'stg1')
-            account=891377317704
             profile=cob-stg
             region=us-east-1
             hostdb=master.database.general.cob.cobiscloud.int
