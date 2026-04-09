@@ -131,6 +131,18 @@ case $customer in
             hostdb=drqa2-us-west-2-gp-cluster-rds-bck-20230925-global.cluster-ckkvmm8qhq9z.us-west-2.rds.amazonaws.com
             localPort=3416
             ;;
+          'qa4')
+            profile=cob-qa
+            region=us-east-2
+            hostdb=master.database.general.cob.cobiscloud.int
+            localPort=3418
+            ;;
+          'qa5')
+            profile=cob-qa
+            region=us-east-2
+            hostdb=master.database.general.cob.cobiscloud.int
+            localPort=3419
+            ;;
           'stg1')
             profile=cob-stg
             region=us-east-1
