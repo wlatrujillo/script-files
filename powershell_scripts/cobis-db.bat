@@ -76,6 +76,18 @@ if "%env%"=="drqa2" (
     set hostdb=drqa2-us-west-2-gp-cluster-rds-bck-20230925-global.cluster-ckkvmm8qhq9z.us-west-2.rds.amazonaws.com
     set localPort=3416
 )
+if "%env%"=="qa4" (
+    set profile=110595436954_COBSupport
+    set region=us-east-2
+    set hostdb=master.database.general.cob.cobiscloud.int
+    set localPort=3418
+)
+if "%env%"=="qa5" (
+    set profile=110595436954_COBSupport
+    set region=us-east-2
+    set hostdb=master.database.general.cob.cobiscloud.int
+    set localPort=3419
+)
 if "%env%"=="stg1" (
     set profile=891377317704_COBSupport
     set region=us-east-1    
