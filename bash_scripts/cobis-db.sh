@@ -86,13 +86,13 @@ case $customer in
           'dev2')
             profile=cob-dev
             region=us-east-1
-            hostdb=dev2-us-east-1-gp-cluster-rds-bck-20230921-global.cluster-ck9mgilqxnyv.us-east-1.rds.amazonaws.com
+            hostdb=master.database.general.cobiscorp.cobiscloud.int
             localPort=3316
             ;;
           'drdev2')
             profile=cob-dev
             region=us-west-2
-            hostdb=drdev2-us-west-2-gp-cluster-rds-bck-20251013-global.cluster-ca7znqtnpovh.us-west-2.rds.amazonaws.com
+            hostdb=master.database.general.cobiscorp.cobiscloud.int
             localPort=3316
             ;;
           'dev3')

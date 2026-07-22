@@ -31,13 +31,13 @@ if "%env%"=="dev1" (
 if "%env%"=="dev2" (
     set profile=681989517074_COBDeveloper
     set region=us-east-1
-    set hostdb=dev2-gp-global-cluster-bck-20230921.global-gdctcvchpt1c.global.rds.amazonaws.com
+    set hostdb=master.database.general.cobiscorp.cobiscloud.int
     set localPort=3316
 )
 if "%env%"=="drdev2" (
     set profile=681989517074_COBDeveloper
     set region=us-west-2
-    set hostdb=drdev2-us-west-2-gp-cluster-rds-bck-20251013-global.cluster-ca7znqtnpovh.us-west-2.rds.amazonaws.com
+    set hostdb=master.database.general.cobiscorp.cobiscloud.int
     set localPort=3316
 )
 if "%env%"=="dev3" (
