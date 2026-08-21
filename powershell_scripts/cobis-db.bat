@@ -67,7 +67,7 @@ if "%env%"=="qa1" (
 if "%env%"=="qa2" (
     set profile=110595436954_COBSupport
     set region=us-east-1
-    set hostdb=qa2-gp-global-cluster-bck-20230925.global-gsfo2ixyznir.global.rds.amazonaws.com
+    set hostdb=qa2-us-east-1-gp-cluster-rds-bck-20260804-global.cluster-ce9zhy7a5mhb.us-east-1.rds.amazonaws.com
     set localPort=3416
 )
 if "%env%"=="drqa2" (

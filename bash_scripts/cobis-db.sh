@@ -122,7 +122,7 @@ case $customer in
           'qa2')
             profile=cob-qa
             region=us-east-1
-            hostdb=master.database.general.cob.cobiscloud.int
+            hostdb=qa2-us-east-1-gp-cluster-rds-bck-20260804-global.cluster-ce9zhy7a5mhb.us-east-1.rds.amazonaws.com
             localPort=3416
             ;;
           'drqa2')
